@@ -1,0 +1,17 @@
+-- Rainbow Frame Script
+local frame = script.Parent -- Assuming the script is placed inside the frame
+
+local hue = 0
+local hueStep = 0.005 -- Controls the speed of color change
+
+while true do
+	hue = hue + hueStep
+	if hue >= 1 then
+		hue = 0
+	end
+
+	local color = Color3.fromHSV(hue, 1, 1)
+	frame.BackgroundColor3 = color
+
+	wait() -- Adjust the delay between color updates (you can experiment with different values)
+end
