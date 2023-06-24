@@ -1,0 +1,19 @@
+-- Function to shake the GUI
+local function shakeGUI()
+	while true do
+		local startPos = gui.Position
+		local startTime = tick()
+		local endTime = startTime + shakeDuration
+
+		while tick() < endTime do
+			local t = (tick() - startTime) / shakeDuration
+			local x = shakeIntensity * math.sin(t * shakeFrequency * 2 * math.pi)
+			gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + x, startPos.Y.Scale, startPos.Y.Offset)
+			wait()
+		end
+
+		gui.Position = startPos
+	end
+end
+
+shakeGUI()
